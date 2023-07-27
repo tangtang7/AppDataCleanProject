@@ -23,9 +23,10 @@ import java.io.IOException
 class AppDataCleanManager {
     companion object {
         /**
-         * 方案一:利用命令行pm clear 包名，系统级别清除App数据
-         *  优点:和任务管理器里面清除所有数据的操作一致，会删除所有的APP数据。重新进入APP还需重新申请权限。
-         *  缺点:系统会直接杀掉APP进程，无法进行拉起APP的操作。
+         * 方案一: 利用命令行pm clear 包名 或 clearApplicationUserData系统函数，系统级别清除App数据
+         *  优点: 和任务管理器里面清除所有数据的操作一致，会删除所有的APP数据。重新进入APP还需重新申请权限。
+         *  缺点: 系统会直接杀掉APP进程，无法进行拉起APP的操作。
+         *  注意: 清理完成后查看存储会有 十几kb数据 ，因为会保留文件夹，并非数据清除失败。
          * @param context
          * @return 是否清除成功
          */
